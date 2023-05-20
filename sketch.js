@@ -85,11 +85,11 @@ function draw() {
     gameOver.visible = false;
     restart.visible = false;
     
-    ground.velocityX = -(4 + 3* score/100)
+    ground.velocityX = -(4 + 3* score/100); //modificar a velocidade do chão de acordo com a pontuação <<<<<<<<
     //pontuação
     score = score + Math.round(frameCount/60);
     
-    if(score>0 && score%100 === 0){
+    if(score>0 && score%100 === 0){ // toca o som a cada 100 pts <<<<<<<<<<
        checkPointSound.play() 
     }
     
@@ -100,7 +100,7 @@ function draw() {
     //pular quando a tecla de espaço for pressionada
     if(keyDown("space")&& trex.y >= 100) {
         trex.velocityY = -12;
-        jumpSound.play();
+        jumpSound.play(); //toca o som quando pula <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
     
     //adicione gravidade
@@ -113,11 +113,8 @@ function draw() {
     spawnObstacles();
     
     if(obstaclesGroup.isTouching(trex)){
-        trex.velocityY = -12;
-        jumpSound.play();
-        // gameState = END;
-        // dieSound.play()
-      
+      gameState = END;
+      dieSound.play(); //toca o som de morrendo <<<<<<<<<<<<<<<<<<<
     }
   }
    else if (gameState === END) {
