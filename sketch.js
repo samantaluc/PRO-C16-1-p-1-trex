@@ -9,30 +9,26 @@ var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
 var score;
-var gameOverImg,restartImg
-var jumpSound , checkPointSound, dieSound
+var gameOverImg, restartImg;
+var jumpSound , checkPointSound, dieSound; // adicionar as variaveis para os sons <<<<<<<<<<<<<<<<<<
 
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadImage("trex_collided.png");
-  
   groundImage = loadImage("ground2.png");
-  
   cloudImage = loadImage("cloud.png");
-  
   obstacle1 = loadImage("obstacle1.png");
   obstacle2 = loadImage("obstacle2.png");
   obstacle3 = loadImage("obstacle3.png");
   obstacle4 = loadImage("obstacle4.png");
   obstacle5 = loadImage("obstacle5.png");
   obstacle6 = loadImage("obstacle6.png");
-  
-  restartImg = loadImage("restart.png")
-  gameOverImg = loadImage("gameOver.png")
-  
-  jumpSound = loadSound("jump.mp3")
-  dieSound = loadSound("die.mp3")
-  checkPointSound = loadSound("checkpoint.mp3")
+  restartImg = loadImage("restart.png");
+  gameOverImg = loadImage("gameOver.png");
+  //carregar os arquivos de som as variaveis adicionadas anteriormente <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  jumpSound = loadSound("jump.mp3"); 
+  dieSound = loadSound("die.mp3");
+  checkPointSound = loadSound("checkpoint.mp3");
 }
 
 function setup() {
@@ -65,7 +61,7 @@ function setup() {
   console.log("Hello" + 5);
   
   trex.setCollider("rectangle",0,0,400,trex.height);
-  trex.debug = true
+  trex.debug = true;
   
   score = 0;
   
@@ -90,7 +86,7 @@ function draw() {
     score = score + Math.round(frameCount/60);
     
     if(score>0 && score%100 === 0){ // toca o som a cada 100 pts <<<<<<<<<<
-       checkPointSound.play() 
+       checkPointSound.play();
     }
     
     if (ground.x < 0){
@@ -146,7 +142,7 @@ function draw() {
 function spawnObstacles(){
  if (frameCount % 60 === 0){
    var obstacle = createSprite(400,165,10,40);
-   obstacle.velocityX = -(6 + score/100);
+   obstacle.velocityX = -(6 + score/100); //modificar a velocidade do obstáculo de acordo com a pontuação <<<<<<<<
    
     //gerar obstáculos aleatórios
     var rand = Math.round(random(1,6));
